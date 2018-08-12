@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kirigami2
-Version  : 5.48.0
-Release  : 1
-URL      : https://download.kde.org/stable/frameworks/5.48/kirigami2-5.48.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.48/kirigami2-5.48.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.48/kirigami2-5.48.0.tar.xz.sig
+Version  : 5.49.0
+Release  : 2
+URL      : https://download.kde.org/stable/frameworks/5.49/kirigami2-5.49.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.49/kirigami2-5.49.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.49/kirigami2-5.49.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.0
@@ -19,6 +19,8 @@ Requires: kirigami2-data
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : buildreq-qmake
+BuildRequires : git
+BuildRequires : qtbase-dev qtbase-extras mesa-dev
 BuildRequires : qtdeclarative-extras
 
 %description
@@ -63,14 +65,14 @@ license components for the kirigami2 package.
 
 
 %prep
-%setup -q -n kirigami2-5.48.0
+%setup -q -n kirigami2-5.49.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1532298731
+export SOURCE_DATE_EPOCH=1534098017
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -78,7 +80,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1532298731
+export SOURCE_DATE_EPOCH=1534098017
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/kirigami2
 cp LICENSE.LGPL-2 %{buildroot}/usr/share/doc/kirigami2/LICENSE.LGPL-2
@@ -149,7 +151,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Kirigami2.so.5
-/usr/lib64/libKF5Kirigami2.so.5.48.0
+/usr/lib64/libKF5Kirigami2.so.5.49.0
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationItem.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationWindow.qml
