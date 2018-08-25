@@ -6,7 +6,7 @@
 #
 Name     : kirigami2
 Version  : 5.49.0
-Release  : 2
+Release  : 3
 URL      : https://download.kde.org/stable/frameworks/5.49/kirigami2-5.49.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.49/kirigami2-5.49.0.tar.xz
 Source99 : https://download.kde.org/stable/frameworks/5.49/kirigami2-5.49.0.tar.xz.sig
@@ -17,11 +17,13 @@ Requires: kirigami2-lib
 Requires: kirigami2-license
 Requires: kirigami2-data
 BuildRequires : buildreq-cmake
-BuildRequires : buildreq-kde
 BuildRequires : buildreq-qmake
 BuildRequires : git
-BuildRequires : qtbase-dev qtbase-extras mesa-dev
-BuildRequires : qtdeclarative-extras
+BuildRequires : pkgconfig(Qt5Quick)
+BuildRequires : pkgconfig(Qt5QuickControls2)
+BuildRequires : pkgconfig(Qt5Svg)
+BuildRequires : qtbase-dev mesa-dev
+BuildRequires : qttools-dev
 
 %description
 Add here, with either a script that does a git checkout
@@ -72,7 +74,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1534098017
+export SOURCE_DATE_EPOCH=1535165605
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -80,7 +82,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1534098017
+export SOURCE_DATE_EPOCH=1535165605
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/kirigami2
 cp LICENSE.LGPL-2 %{buildroot}/usr/share/doc/kirigami2/LICENSE.LGPL-2
