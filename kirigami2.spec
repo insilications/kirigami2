@@ -5,17 +5,17 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kirigami2
-Version  : 5.50.0
-Release  : 5
-URL      : https://download.kde.org/stable/frameworks/5.50/kirigami2-5.50.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.50/kirigami2-5.50.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.50/kirigami2-5.50.0.tar.xz.sig
+Version  : 5.51.0
+Release  : 6
+URL      : https://download.kde.org/stable/frameworks/5.51/kirigami2-5.51.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.51/kirigami2-5.51.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.51/kirigami2-5.51.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.0
-Requires: kirigami2-lib
-Requires: kirigami2-license
-Requires: kirigami2-data
+Requires: kirigami2-data = %{version}-%{release}
+Requires: kirigami2-lib = %{version}-%{release}
+Requires: kirigami2-license = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : buildreq-qmake
@@ -23,7 +23,7 @@ BuildRequires : git
 BuildRequires : pkgconfig(Qt5Quick)
 BuildRequires : pkgconfig(Qt5QuickControls2)
 BuildRequires : pkgconfig(Qt5Svg)
-BuildRequires : qtbase-dev qtbase-extras mesa-dev
+BuildRequires : qtbase-dev mesa-dev
 BuildRequires : qttools-dev
 
 %description
@@ -41,9 +41,9 @@ data components for the kirigami2 package.
 %package dev
 Summary: dev components for the kirigami2 package.
 Group: Development
-Requires: kirigami2-lib
-Requires: kirigami2-data
-Provides: kirigami2-devel
+Requires: kirigami2-lib = %{version}-%{release}
+Requires: kirigami2-data = %{version}-%{release}
+Provides: kirigami2-devel = %{version}-%{release}
 
 %description dev
 dev components for the kirigami2 package.
@@ -52,8 +52,8 @@ dev components for the kirigami2 package.
 %package lib
 Summary: lib components for the kirigami2 package.
 Group: Libraries
-Requires: kirigami2-data
-Requires: kirigami2-license
+Requires: kirigami2-data = %{version}-%{release}
+Requires: kirigami2-license = %{version}-%{release}
 
 %description lib
 lib components for the kirigami2 package.
@@ -68,25 +68,25 @@ license components for the kirigami2 package.
 
 
 %prep
-%setup -q -n kirigami2-5.50.0
+%setup -q -n kirigami2-5.51.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1536434123
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1539616411
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1536434123
+export SOURCE_DATE_EPOCH=1539616411
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/kirigami2
-cp LICENSE.LGPL-2 %{buildroot}/usr/share/doc/kirigami2/LICENSE.LGPL-2
+mkdir -p %{buildroot}/usr/share/package-licenses/kirigami2
+cp LICENSE.LGPL-2 %{buildroot}/usr/share/package-licenses/kirigami2/LICENSE.LGPL-2
 pushd clr-build
 %make_install
 popd
@@ -154,7 +154,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Kirigami2.so.5
-/usr/lib64/libKF5Kirigami2.so.5.50.0
+/usr/lib64/libKF5Kirigami2.so.5.51.0
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationItem.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationWindow.qml
@@ -191,7 +191,6 @@ popd
 /usr/lib64/qt5/qml/org/kde/kirigami.2/Units.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/libkirigamiplugin.so
 /usr/lib64/qt5/qml/org/kde/kirigami.2/plugins.qmltypes
-/usr/lib64/qt5/qml/org/kde/kirigami.2/private/AbstractPageHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/ActionButton.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/ActionIconGroup.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/ActionMenuItem.qml
@@ -199,7 +198,6 @@ popd
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/ActionMenuItemQt510.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/ActionMenuItemQt59.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/ActionsMenu.qml
-/usr/lib64/qt5/qml/org/kde/kirigami.2/private/BannerGroup.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/BannerImage.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/CardsGridViewPrivate.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/CardsListViewPrivate.qml
@@ -207,13 +205,14 @@ popd
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/DefaultListItemBackground.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/EdgeShadow.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/PageActionPropertyGroup.qml
-/usr/lib64/qt5/qml/org/kde/kirigami.2/private/PageRowGlobalToolBarStyleGroup.qml
-/usr/lib64/qt5/qml/org/kde/kirigami.2/private/PageRowGlobalToolBarUI.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/PrivateActionToolButton.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/RefreshableScrollView.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/SwipeItemEventFilter.qml
-/usr/lib64/qt5/qml/org/kde/kirigami.2/private/TitlesPageHeader.qml
-/usr/lib64/qt5/qml/org/kde/kirigami.2/private/ToolBarPageHeader.qml
+/usr/lib64/qt5/qml/org/kde/kirigami.2/private/globaltoolbar/AbstractPageHeader.qml
+/usr/lib64/qt5/qml/org/kde/kirigami.2/private/globaltoolbar/PageRowGlobalToolBarStyleGroup.qml
+/usr/lib64/qt5/qml/org/kde/kirigami.2/private/globaltoolbar/PageRowGlobalToolBarUI.qml
+/usr/lib64/qt5/qml/org/kde/kirigami.2/private/globaltoolbar/TitlesPageHeader.qml
+/usr/lib64/qt5/qml/org/kde/kirigami.2/private/globaltoolbar/ToolBarPageHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/qmldir
 /usr/lib64/qt5/qml/org/kde/kirigami.2/styles/Material/AbstractListItem.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/styles/Material/Label.qml
@@ -222,7 +221,6 @@ popd
 /usr/lib64/qt5/qml/org/kde/kirigami.2/styles/org.kde.desktop/AbstractApplicationHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/styles/org.kde.desktop/AbstractListItem.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/styles/org.kde.desktop/ApplicationWindow.qml
-/usr/lib64/qt5/qml/org/kde/kirigami.2/styles/org.kde.desktop/OverlayDrawer.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/styles/org.kde.desktop/SwipeListItem.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/styles/org.kde.desktop/Theme.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/styles/org.kde.desktop/Units.qml
@@ -245,5 +243,5 @@ popd
 /usr/lib64/qt5/qml/org/kde/kirigami.2/templates/qmldir
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/kirigami2/LICENSE.LGPL-2
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/kirigami2/LICENSE.LGPL-2
