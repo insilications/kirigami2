@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kirigami2
-Version  : 5.51.0
-Release  : 7
-URL      : https://download.kde.org/stable/frameworks/5.51/kirigami2-5.51.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.51/kirigami2-5.51.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.51/kirigami2-5.51.0.tar.xz.sig
+Version  : 5.52.0
+Release  : 8
+URL      : https://download.kde.org/stable/frameworks/5.52/kirigami2-5.52.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.52/kirigami2-5.52.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.52/kirigami2-5.52.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.0
@@ -29,6 +29,14 @@ BuildRequires : qttools-dev
 %description
 Add here, with either a script that does a git checkout
 or as git submodules the two projects:
+
+%package abi
+Summary: abi components for the kirigami2 package.
+Group: Default
+
+%description abi
+abi components for the kirigami2 package.
+
 
 %package data
 Summary: data components for the kirigami2 package.
@@ -68,14 +76,14 @@ license components for the kirigami2 package.
 
 
 %prep
-%setup -q -n kirigami2-5.51.0
+%setup -q -n kirigami2-5.52.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1539638413
+export SOURCE_DATE_EPOCH=1541870505
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -83,7 +91,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1539638413
+export SOURCE_DATE_EPOCH=1541870505
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kirigami2
 cp LICENSE.LGPL-2 %{buildroot}/usr/share/package-licenses/kirigami2/LICENSE.LGPL-2
@@ -94,10 +102,13 @@ popd
 %files
 %defattr(-,root,root,-)
 
+%files abi
+%defattr(-,root,root,-)
+/usr/share/abi/libKF5Kirigami2.so.5.52.0.abi
+
 %files data
 %defattr(-,root,root,-)
 /usr/share/locale/ar/LC_MESSAGES/libkirigami2plugin_qt.qm
-/usr/share/locale/ast/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/ca/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/ca@valencia/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/cs/LC_MESSAGES/libkirigami2plugin_qt.qm
@@ -154,7 +165,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Kirigami2.so.5
-/usr/lib64/libKF5Kirigami2.so.5.51.0
+/usr/lib64/libKF5Kirigami2.so.5.52.0
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationItem.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationWindow.qml
@@ -209,8 +220,10 @@ popd
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/RefreshableScrollView.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/SwipeItemEventFilter.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/globaltoolbar/AbstractPageHeader.qml
+/usr/lib64/qt5/qml/org/kde/kirigami.2/private/globaltoolbar/BreadcrumbControl.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/globaltoolbar/PageRowGlobalToolBarStyleGroup.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/globaltoolbar/PageRowGlobalToolBarUI.qml
+/usr/lib64/qt5/qml/org/kde/kirigami.2/private/globaltoolbar/TabBarControl.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/globaltoolbar/TitlesPageHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/globaltoolbar/ToolBarPageHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/qmldir
