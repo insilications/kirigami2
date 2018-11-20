@@ -6,7 +6,7 @@
 #
 Name     : kirigami2
 Version  : 5.52.0
-Release  : 8
+Release  : 9
 URL      : https://download.kde.org/stable/frameworks/5.52/kirigami2-5.52.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.52/kirigami2-5.52.0.tar.xz
 Source99 : https://download.kde.org/stable/frameworks/5.52/kirigami2-5.52.0.tar.xz.sig
@@ -29,14 +29,6 @@ BuildRequires : qttools-dev
 %description
 Add here, with either a script that does a git checkout
 or as git submodules the two projects:
-
-%package abi
-Summary: abi components for the kirigami2 package.
-Group: Default
-
-%description abi
-abi components for the kirigami2 package.
-
 
 %package data
 Summary: data components for the kirigami2 package.
@@ -83,7 +75,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1541870505
+export SOURCE_DATE_EPOCH=1542742828
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -91,7 +83,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1541870505
+export SOURCE_DATE_EPOCH=1542742828
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kirigami2
 cp LICENSE.LGPL-2 %{buildroot}/usr/share/package-licenses/kirigami2/LICENSE.LGPL-2
@@ -101,10 +93,6 @@ popd
 
 %files
 %defattr(-,root,root,-)
-
-%files abi
-%defattr(-,root,root,-)
-/usr/share/abi/libKF5Kirigami2.so.5.52.0.abi
 
 %files data
 %defattr(-,root,root,-)
