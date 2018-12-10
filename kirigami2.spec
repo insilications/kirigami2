@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kirigami2
-Version  : 5.52.0
-Release  : 9
-URL      : https://download.kde.org/stable/frameworks/5.52/kirigami2-5.52.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.52/kirigami2-5.52.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.52/kirigami2-5.52.0.tar.xz.sig
+Version  : 5.53.0
+Release  : 10
+URL      : https://download.kde.org/stable/frameworks/5.53/kirigami2-5.53.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.53/kirigami2-5.53.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.53/kirigami2-5.53.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.0
@@ -68,22 +68,22 @@ license components for the kirigami2 package.
 
 
 %prep
-%setup -q -n kirigami2-5.52.0
+%setup -q -n kirigami2-5.53.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1542742828
+export SOURCE_DATE_EPOCH=1544479145
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1542742828
+export SOURCE_DATE_EPOCH=1544479145
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kirigami2
 cp LICENSE.LGPL-2 %{buildroot}/usr/share/package-licenses/kirigami2/LICENSE.LGPL-2
@@ -153,7 +153,8 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Kirigami2.so.5
-/usr/lib64/libKF5Kirigami2.so.5.52.0
+/usr/lib64/libKF5Kirigami2.so.5.53.0
+/usr/lib64/qt5/qml/org/kde/kirigami.2/AboutPage.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationItem.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationWindow.qml
@@ -177,6 +178,7 @@ popd
 /usr/lib64/qt5/qml/org/kde/kirigami.2/InlineMessage.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/ItemViewHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/Label.qml
+/usr/lib64/qt5/qml/org/kde/kirigami.2/LinkButton.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/ListItemDragHandle.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/OverlayDrawer.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/OverlaySheet.qml
@@ -188,6 +190,7 @@ popd
 /usr/lib64/qt5/qml/org/kde/kirigami.2/Theme.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/ToolBarApplicationHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/Units.qml
+/usr/lib64/qt5/qml/org/kde/kirigami.2/UrlButton.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/libkirigamiplugin.so
 /usr/lib64/qt5/qml/org/kde/kirigami.2/plugins.qmltypes
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/ActionButton.qml
