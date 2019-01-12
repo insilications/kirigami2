@@ -6,7 +6,7 @@
 #
 Name     : kirigami2
 Version  : 5.53.0
-Release  : 11
+Release  : 12
 URL      : https://download.kde.org/stable/frameworks/5.53/kirigami2-5.53.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.53/kirigami2-5.53.0.tar.xz
 Source99 : https://download.kde.org/stable/frameworks/5.53/kirigami2-5.53.0.tar.xz.sig
