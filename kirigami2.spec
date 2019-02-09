@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kirigami2
-Version  : 5.54.0
-Release  : 13
-URL      : https://download.kde.org/stable/frameworks/5.54/kirigami2-5.54.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.54/kirigami2-5.54.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.54/kirigami2-5.54.0.tar.xz.sig
+Version  : 5.55.0
+Release  : 14
+URL      : https://download.kde.org/stable/frameworks/5.55/kirigami2-5.55.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.55/kirigami2-5.55.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.55/kirigami2-5.55.0.tar.xz.sig
 Summary  : A QtQuick based components set
 Group    : Development/Tools
 License  : LGPL-2.0
@@ -68,14 +68,14 @@ license components for the kirigami2 package.
 
 
 %prep
-%setup -q -n kirigami2-5.54.0
+%setup -q -n kirigami2-5.55.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1547316037
+export SOURCE_DATE_EPOCH=1549729435
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -83,7 +83,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1547316037
+export SOURCE_DATE_EPOCH=1549729435
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kirigami2
 cp LICENSE.LGPL-2 %{buildroot}/usr/share/package-licenses/kirigami2/LICENSE.LGPL-2
@@ -153,7 +153,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Kirigami2.so.5
-/usr/lib64/libKF5Kirigami2.so.5.54.0
+/usr/lib64/libKF5Kirigami2.so.5.55.0
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AboutPage.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationItem.qml
@@ -203,9 +203,11 @@ popd
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/BannerImage.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/CardsGridViewPrivate.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/CardsListViewPrivate.qml
+/usr/lib64/qt5/qml/org/kde/kirigami.2/private/ContextDrawerActionItem.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/CornerShadow.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/DefaultListItemBackground.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/EdgeShadow.qml
+/usr/lib64/qt5/qml/org/kde/kirigami.2/private/GlobalDrawerActionItem.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/PageActionPropertyGroup.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/PrivateActionToolButton.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/RefreshableScrollView.qml
