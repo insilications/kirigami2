@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kirigami2
-Version  : 5.56.1
-Release  : 16
-URL      : https://download.kde.org/stable/frameworks/5.56/kirigami2-5.56.1.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.56/kirigami2-5.56.1.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.56/kirigami2-5.56.1.tar.xz.sig
+Version  : 5.57.0
+Release  : 17
+URL      : https://download.kde.org/stable/frameworks/5.57/kirigami2-5.57.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.57/kirigami2-5.57.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.57/kirigami2-5.57.0.tar.xz.sig
 Summary  : A QtQuick based components set
 Group    : Development/Tools
 License  : LGPL-2.0
@@ -69,23 +69,22 @@ license components for the kirigami2 package.
 
 
 %prep
-%setup -q -n kirigami2-5.56.1
+%setup -q -n kirigami2-5.57.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552485102
+export SOURCE_DATE_EPOCH=1555187059
 mkdir -p clr-build
 pushd clr-build
-export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1552485102
+export SOURCE_DATE_EPOCH=1555187059
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kirigami2
 cp LICENSE.LGPL-2 %{buildroot}/usr/share/package-licenses/kirigami2/LICENSE.LGPL-2
@@ -155,7 +154,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Kirigami2.so.5
-/usr/lib64/libKF5Kirigami2.so.5.56.0
+/usr/lib64/libKF5Kirigami2.so.5.57.0
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AboutPage.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationItem.qml
@@ -187,7 +186,9 @@ popd
 /usr/lib64/qt5/qml/org/kde/kirigami.2/OverlaySheet.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/Page.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/PageRow.qml
+/usr/lib64/qt5/qml/org/kde/kirigami.2/PasswordField.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/ScrollablePage.qml
+/usr/lib64/qt5/qml/org/kde/kirigami.2/SearchField.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/Separator.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/SwipeListItem.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/Theme.qml
@@ -221,6 +222,7 @@ popd
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/globaltoolbar/ToolBarPageHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/qmldir
 /usr/lib64/qt5/qml/org/kde/kirigami.2/styles/Material/AbstractListItem.qml
+/usr/lib64/qt5/qml/org/kde/kirigami.2/styles/Material/InlineMessage.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/styles/Material/Label.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/styles/Material/SwipeListItem.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/styles/Material/Theme.qml
