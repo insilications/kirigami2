@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kirigami2
-Version  : 5.57.0
-Release  : 19
-URL      : https://download.kde.org/stable/frameworks/5.57/kirigami2-5.57.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.57/kirigami2-5.57.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.57/kirigami2-5.57.0.tar.xz.sig
+Version  : 5.58.0
+Release  : 20
+URL      : https://download.kde.org/stable/frameworks/5.58/kirigami2-5.58.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.58/kirigami2-5.58.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.58/kirigami2-5.58.0.tar.xz.sig
 Summary  : A QtQuick based components set
 Group    : Development/Tools
 License  : LGPL-2.0
@@ -45,6 +45,7 @@ Requires: kirigami2-lib = %{version}-%{release}
 Requires: kirigami2-data = %{version}-%{release}
 Provides: kirigami2-devel = %{version}-%{release}
 Requires: kirigami2 = %{version}-%{release}
+Requires: kirigami2 = %{version}-%{release}
 
 %description dev
 dev components for the kirigami2 package.
@@ -69,14 +70,14 @@ license components for the kirigami2 package.
 
 
 %prep
-%setup -q -n kirigami2-5.57.0
+%setup -q -n kirigami2-5.58.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1557019049
+export SOURCE_DATE_EPOCH=1557768435
 mkdir -p clr-build
 pushd clr-build
 export AR=gcc-ar
@@ -91,7 +92,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1557019049
+export SOURCE_DATE_EPOCH=1557768435
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kirigami2
 cp LICENSE.LGPL-2 %{buildroot}/usr/share/package-licenses/kirigami2/LICENSE.LGPL-2
@@ -123,6 +124,7 @@ popd
 /usr/share/locale/it/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/ja/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/ko/LC_MESSAGES/libkirigami2plugin_qt.qm
+/usr/share/locale/lt/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/nl/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/nn/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/pl/LC_MESSAGES/libkirigami2plugin_qt.qm
@@ -161,7 +163,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Kirigami2.so.5
-/usr/lib64/libKF5Kirigami2.so.5.57.0
+/usr/lib64/libKF5Kirigami2.so.5.58.0
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AboutPage.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationItem.qml
