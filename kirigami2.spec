@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kirigami2
-Version  : 5.61.0
-Release  : 23
-URL      : https://download.kde.org/stable/frameworks/5.61/kirigami2-5.61.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.61/kirigami2-5.61.0.tar.xz
-Source1 : https://download.kde.org/stable/frameworks/5.61/kirigami2-5.61.0.tar.xz.sig
+Version  : 5.62.0
+Release  : 24
+URL      : https://download.kde.org/stable/frameworks/5.62/kirigami2-5.62.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.62/kirigami2-5.62.0.tar.xz
+Source1 : https://download.kde.org/stable/frameworks/5.62/kirigami2-5.62.0.tar.xz.sig
 Summary  : A QtQuick based components set
 Group    : Development/Tools
 License  : LGPL-2.0
@@ -70,14 +70,14 @@ license components for the kirigami2 package.
 
 
 %prep
-%setup -q -n kirigami2-5.61.0
+%setup -q -n kirigami2-5.62.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1565582701
+export SOURCE_DATE_EPOCH=1568866594
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -90,11 +90,11 @@ export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1565582701
+export SOURCE_DATE_EPOCH=1568866594
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kirigami2
 cp LICENSE.LGPL-2 %{buildroot}/usr/share/package-licenses/kirigami2/LICENSE.LGPL-2
@@ -127,6 +127,7 @@ popd
 /usr/share/locale/ja/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/ko/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/lt/LC_MESSAGES/libkirigami2plugin_qt.qm
+/usr/share/locale/ml/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/nl/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/nn/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/pl/LC_MESSAGES/libkirigami2plugin_qt.qm
@@ -140,6 +141,7 @@ popd
 /usr/share/locale/sr@ijekavianlatin/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/sr@latin/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/sv/LC_MESSAGES/libkirigami2plugin_qt.qm
+/usr/share/locale/tg/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/tr/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/uk/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/zh_CN/LC_MESSAGES/libkirigami2plugin_qt.qm
@@ -165,7 +167,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Kirigami2.so.5
-/usr/lib64/libKF5Kirigami2.so.5.61.0
+/usr/lib64/libKF5Kirigami2.so.5.62.0
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AboutPage.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationItem.qml
@@ -193,6 +195,7 @@ popd
 /usr/lib64/qt5/qml/org/kde/kirigami.2/Label.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/LinkButton.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/ListItemDragHandle.qml
+/usr/lib64/qt5/qml/org/kde/kirigami.2/ListSectionHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/OverlayDrawer.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/OverlaySheet.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/Page.qml
