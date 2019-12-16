@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kirigami2
-Version  : 5.64.1
-Release  : 27
-URL      : https://download.kde.org/stable/frameworks/5.64/kirigami2-5.64.1.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.64/kirigami2-5.64.1.tar.xz
-Source1 : https://download.kde.org/stable/frameworks/5.64/kirigami2-5.64.1.tar.xz.sig
+Version  : 5.65.0
+Release  : 28
+URL      : https://download.kde.org/stable/frameworks/5.65/kirigami2-5.65.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.65/kirigami2-5.65.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.65/kirigami2-5.65.0.tar.xz.sig
 Summary  : A QtQuick based components set
 Group    : Development/Tools
 License  : LGPL-2.0
@@ -70,15 +70,15 @@ license components for the kirigami2 package.
 
 
 %prep
-%setup -q -n kirigami2-5.64.1
-cd %{_builddir}/kirigami2-5.64.1
+%setup -q -n kirigami2-5.65.0
+cd %{_builddir}/kirigami2-5.65.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1574276889
+export SOURCE_DATE_EPOCH=1576516482
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -95,10 +95,10 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1574276889
+export SOURCE_DATE_EPOCH=1576516482
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kirigami2
-cp %{_builddir}/kirigami2-5.64.1/LICENSE.LGPL-2 %{buildroot}/usr/share/package-licenses/kirigami2/ba8966e2473a9969bdcab3dc82274c817cfd98a1
+cp %{_builddir}/kirigami2-5.65.0/LICENSE.LGPL-2 %{buildroot}/usr/share/package-licenses/kirigami2/ba8966e2473a9969bdcab3dc82274c817cfd98a1
 pushd clr-build
 %make_install
 popd
@@ -118,6 +118,7 @@ popd
 /usr/share/locale/el/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/en_GB/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/es/LC_MESSAGES/libkirigami2plugin_qt.qm
+/usr/share/locale/et/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/eu/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/fi/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/fr/LC_MESSAGES/libkirigami2plugin_qt.qm
@@ -169,7 +170,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Kirigami2.so.5
-/usr/lib64/libKF5Kirigami2.so.5.64.0
+/usr/lib64/libKF5Kirigami2.so.5.65.0
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AboutPage.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationItem.qml
@@ -217,12 +218,14 @@ popd
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/ActionButton.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/ActionIconGroup.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/ActionMenuItem.qml
+/usr/lib64/qt5/qml/org/kde/kirigami.2/private/ActionToolBarLayoutDetails.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/ActionsMenu.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/BannerImage.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/CardsGridViewPrivate.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/CardsListViewPrivate.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/ContextDrawerActionItem.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/CornerShadow.qml
+/usr/lib64/qt5/qml/org/kde/kirigami.2/private/DefaultCardBackground.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/DefaultListItemBackground.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/EdgeShadow.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/GlobalDrawerActionItem.qml
