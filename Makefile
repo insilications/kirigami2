@@ -1,5 +1,5 @@
 PKG_NAME := kirigami2
-URL = https://download.kde.org/stable/frameworks/5.67/kirigami2-5.67.1.tar.xz
+URL = https://download.kde.org/stable/frameworks/5.68/kirigami2-5.68.0.tar.xz
 ARCHIVES = 
 
 include ../common/Makefile.common
