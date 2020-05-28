@@ -6,7 +6,7 @@
 #
 Name     : kirigami2
 Version  : 5.70.0
-Release  : 35
+Release  : 36
 URL      : https://download.kde.org/stable/frameworks/5.70/kirigami2-5.70.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.70/kirigami2-5.70.0.tar.xz
 Source1  : https://download.kde.org/stable/frameworks/5.70/kirigami2-5.70.0.tar.xz.sig
@@ -22,7 +22,6 @@ BuildRequires : buildreq-qmake
 BuildRequires : extra-cmake-modules-data
 BuildRequires : git
 BuildRequires : ki18n-dev
-BuildRequires : kirigami2-dev
 BuildRequires : pkgconfig(Qt5Quick)
 BuildRequires : pkgconfig(Qt5QuickControls2)
 BuildRequires : pkgconfig(Qt5QuickTest)
@@ -83,7 +82,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1589214554
+export SOURCE_DATE_EPOCH=1590697850
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -99,7 +98,7 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1589214554
+export SOURCE_DATE_EPOCH=1590697850
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kirigami2
 cp %{_builddir}/kirigami2-5.70.0/LICENSE.LGPL-2 %{buildroot}/usr/share/package-licenses/kirigami2/ba8966e2473a9969bdcab3dc82274c817cfd98a1
