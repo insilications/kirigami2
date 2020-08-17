@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kirigami2
-Version  : 5.71.0
-Release  : 37
-URL      : https://download.kde.org/stable/frameworks/5.71/kirigami2-5.71.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.71/kirigami2-5.71.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.71/kirigami2-5.71.0.tar.xz.sig
+Version  : 5.73.0
+Release  : 38
+URL      : https://download.kde.org/stable/frameworks/5.73/kirigami2-5.73.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.73/kirigami2-5.73.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.73/kirigami2-5.73.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.0
@@ -74,15 +74,15 @@ license components for the kirigami2 package.
 
 
 %prep
-%setup -q -n kirigami2-5.71.0
-cd %{_builddir}/kirigami2-5.71.0
+%setup -q -n kirigami2-5.73.0
+cd %{_builddir}/kirigami2-5.73.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1592243987
+export SOURCE_DATE_EPOCH=1597701374
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -94,14 +94,14 @@ export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags}  VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1592243987
+export SOURCE_DATE_EPOCH=1597701374
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kirigami2
-cp %{_builddir}/kirigami2-5.71.0/LICENSE.LGPL-2 %{buildroot}/usr/share/package-licenses/kirigami2/ba8966e2473a9969bdcab3dc82274c817cfd98a1
+cp %{_builddir}/kirigami2-5.73.0/LICENSE.LGPL-2 %{buildroot}/usr/share/package-licenses/kirigami2/ba8966e2473a9969bdcab3dc82274c817cfd98a1
 pushd clr-build
 %make_install
 popd
@@ -175,7 +175,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Kirigami2.so.5
-/usr/lib64/libKF5Kirigami2.so.5.71.0
+/usr/lib64/libKF5Kirigami2.so.5.73.0
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AboutPage.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationItem.qml
@@ -196,6 +196,7 @@ popd
 /usr/lib64/qt5/qml/org/kde/kirigami.2/CardsLayout.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/CardsListView.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/ContextDrawer.qml
+/usr/lib64/qt5/qml/org/kde/kirigami.2/FlexColumn.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/FormLayout.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/GlobalDrawer.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/Heading.qml
@@ -266,7 +267,6 @@ popd
 /usr/lib64/qt5/qml/org/kde/kirigami.2/swipenavigator/PrivateSwipeStack.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/swipenavigator/PrivateSwipeTab.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/swipenavigator/PrivateSwipeTabBar.qml
-/usr/lib64/qt5/qml/org/kde/kirigami.2/swipenavigator/PrivateSwipeTabBarLoader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/swipenavigator/SwipeNavigator.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/templates/AbstractApplicationHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/templates/AbstractCard.qml
