@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kirigami2
-Version  : 5.73.0
-Release  : 38
-URL      : https://download.kde.org/stable/frameworks/5.73/kirigami2-5.73.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.73/kirigami2-5.73.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.73/kirigami2-5.73.0.tar.xz.sig
+Version  : 5.75.0
+Release  : 39
+URL      : https://download.kde.org/stable/frameworks/5.75/kirigami2-5.75.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.75/kirigami2-5.75.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.75/kirigami2-5.75.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.0
@@ -21,7 +21,6 @@ BuildRequires : buildreq-kde
 BuildRequires : buildreq-qmake
 BuildRequires : extra-cmake-modules-data
 BuildRequires : git
-BuildRequires : ki18n-dev
 BuildRequires : pkgconfig(Qt5Quick)
 BuildRequires : pkgconfig(Qt5QuickControls2)
 BuildRequires : pkgconfig(Qt5QuickTest)
@@ -74,15 +73,15 @@ license components for the kirigami2 package.
 
 
 %prep
-%setup -q -n kirigami2-5.73.0
-cd %{_builddir}/kirigami2-5.73.0
+%setup -q -n kirigami2-5.75.0
+cd %{_builddir}/kirigami2-5.75.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1597701374
+export SOURCE_DATE_EPOCH=1602615921
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -98,10 +97,10 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1597701374
+export SOURCE_DATE_EPOCH=1602615921
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kirigami2
-cp %{_builddir}/kirigami2-5.73.0/LICENSE.LGPL-2 %{buildroot}/usr/share/package-licenses/kirigami2/ba8966e2473a9969bdcab3dc82274c817cfd98a1
+cp %{_builddir}/kirigami2-5.75.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kirigami2/20079e8f79713dce80ab09774505773c926afa2a
 pushd clr-build
 %make_install
 popd
@@ -141,6 +140,7 @@ popd
 /usr/share/locale/pl/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/pt/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/pt_BR/LC_MESSAGES/libkirigami2plugin_qt.qm
+/usr/share/locale/ro/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/ru/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/sk/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/sl/LC_MESSAGES/libkirigami2plugin_qt.qm
@@ -175,7 +175,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Kirigami2.so.5
-/usr/lib64/libKF5Kirigami2.so.5.73.0
+/usr/lib64/libKF5Kirigami2.so.5.75.0
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AboutPage.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationItem.qml
@@ -228,7 +228,6 @@ popd
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/ActionButton.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/ActionIconGroup.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/ActionMenuItem.qml
-/usr/lib64/qt5/qml/org/kde/kirigami.2/private/ActionToolBarLayoutDetails.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/ActionsMenu.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/BannerImage.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/CardsGridViewPrivate.qml
@@ -275,6 +274,7 @@ popd
 /usr/lib64/qt5/qml/org/kde/kirigami.2/templates/InlineMessage.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/templates/OverlayDrawer.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/templates/OverlaySheet.qml
+/usr/lib64/qt5/qml/org/kde/kirigami.2/templates/SingletonHeaderSizeGroup.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/templates/SwipeListItem.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/templates/private/BackButton.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/templates/private/BorderPropertiesGroup.qml
@@ -289,4 +289,4 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/kirigami2/ba8966e2473a9969bdcab3dc82274c817cfd98a1
+/usr/share/package-licenses/kirigami2/20079e8f79713dce80ab09774505773c926afa2a
