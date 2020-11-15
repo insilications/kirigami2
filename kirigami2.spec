@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kirigami2
-Version  : 5.75.0
-Release  : 41
-URL      : https://download.kde.org/stable/frameworks/5.75/kirigami2-5.75.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.75/kirigami2-5.75.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.75/kirigami2-5.75.0.tar.xz.sig
+Version  : 5.76.0
+Release  : 42
+URL      : https://download.kde.org/stable/frameworks/5.76/kirigami2-5.76.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.76/kirigami2-5.76.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.76/kirigami2-5.76.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.0
@@ -73,15 +73,15 @@ license components for the kirigami2 package.
 
 
 %prep
-%setup -q -n kirigami2-5.75.0
-cd %{_builddir}/kirigami2-5.75.0
+%setup -q -n kirigami2-5.76.0
+cd %{_builddir}/kirigami2-5.76.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1602695485
+export SOURCE_DATE_EPOCH=1605421669
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -97,10 +97,10 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1602695485
+export SOURCE_DATE_EPOCH=1605421669
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kirigami2
-cp %{_builddir}/kirigami2-5.75.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kirigami2/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/kirigami2-5.76.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kirigami2/20079e8f79713dce80ab09774505773c926afa2a
 pushd clr-build
 %make_install
 popd
@@ -175,7 +175,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Kirigami2.so.5
-/usr/lib64/libKF5Kirigami2.so.5.75.0
+/usr/lib64/libKF5Kirigami2.so.5.76.0
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AboutPage.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationItem.qml
