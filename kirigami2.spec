@@ -5,14 +5,14 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kirigami2
-Version  : 5.78.0
-Release  : 44
-URL      : https://download.kde.org/stable/frameworks/5.78/kirigami2-5.78.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.78/kirigami2-5.78.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.78/kirigami2-5.78.0.tar.xz.sig
+Version  : 5.81.0
+Release  : 45
+URL      : https://download.kde.org/stable/frameworks/5.81/kirigami2-5.81.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.81/kirigami2-5.81.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.81/kirigami2-5.81.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : LGPL-2.0
+License  : BSD-3-Clause CC0-1.0 GPL-2.0 LGPL-2.0
 Requires: kirigami2-data = %{version}-%{release}
 Requires: kirigami2-lib = %{version}-%{release}
 Requires: kirigami2-license = %{version}-%{release}
@@ -73,15 +73,15 @@ license components for the kirigami2 package.
 
 
 %prep
-%setup -q -n kirigami2-5.78.0
-cd %{_builddir}/kirigami2-5.78.0
+%setup -q -n kirigami2-5.81.0
+cd %{_builddir}/kirigami2-5.81.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1611180222
+export SOURCE_DATE_EPOCH=1618628539
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -97,10 +97,13 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1611180222
+export SOURCE_DATE_EPOCH=1618628539
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kirigami2
-cp %{_builddir}/kirigami2-5.78.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kirigami2/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/kirigami2-5.81.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kirigami2/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/kirigami2-5.81.0/templates/kirigami/src/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kirigami2/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/kirigami2-5.81.0/templates/kirigami/src/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kirigami2/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
+cp %{_builddir}/kirigami2-5.81.0/templates/kirigami/src/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kirigami2/3e8971c6c5f16674958913a94a36b1ea7a00ac46
 pushd clr-build
 %make_install
 popd
@@ -176,7 +179,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Kirigami2.so.5
-/usr/lib64/libKF5Kirigami2.so.5.78.0
+/usr/lib64/libKF5Kirigami2.so.5.81.0
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AboutPage.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationItem.qml
@@ -222,7 +225,6 @@ popd
 /usr/lib64/qt5/qml/org/kde/kirigami.2/Separator.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/ShadowedImage.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/SwipeListItem.qml
-/usr/lib64/qt5/qml/org/kde/kirigami.2/Theme.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/ToolBarApplicationHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/Units.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/UrlButton.qml
@@ -260,7 +262,6 @@ popd
 /usr/lib64/qt5/qml/org/kde/kirigami.2/styles/Material/Theme.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/styles/org.kde.desktop/AbstractApplicationHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/styles/org.kde.desktop/AbstractListItem.qml
-/usr/lib64/qt5/qml/org/kde/kirigami.2/styles/org.kde.desktop/ApplicationWindow.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/styles/org.kde.desktop/SwipeListItem.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/styles/org.kde.desktop/Theme.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/styles/org.kde.desktop/Units.qml
@@ -293,3 +294,6 @@ popd
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/kirigami2/20079e8f79713dce80ab09774505773c926afa2a
+/usr/share/package-licenses/kirigami2/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+/usr/share/package-licenses/kirigami2/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
+/usr/share/package-licenses/kirigami2/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
