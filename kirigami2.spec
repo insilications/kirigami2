@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kirigami2
-Version  : 5.83.0
-Release  : 47
-URL      : https://download.kde.org/stable/frameworks/5.83/kirigami2-5.83.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.83/kirigami2-5.83.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.83/kirigami2-5.83.0.tar.xz.sig
+Version  : 5.85.0
+Release  : 48
+URL      : https://download.kde.org/stable/frameworks/5.85/kirigami2-5.85.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.85/kirigami2-5.85.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.85/kirigami2-5.85.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 GPL-2.0 LGPL-2.0
@@ -73,37 +73,37 @@ license components for the kirigami2 package.
 
 
 %prep
-%setup -q -n kirigami2-5.83.0
-cd %{_builddir}/kirigami2-5.83.0
+%setup -q -n kirigami2-5.85.0
+cd %{_builddir}/kirigami2-5.85.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1623648870
+export SOURCE_DATE_EPOCH=1630892475
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1623648870
+export SOURCE_DATE_EPOCH=1630892475
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kirigami2
-cp %{_builddir}/kirigami2-5.83.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kirigami2/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/kirigami2-5.83.0/templates/kirigami/src/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kirigami2/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
-cp %{_builddir}/kirigami2-5.83.0/templates/kirigami/src/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kirigami2/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
-cp %{_builddir}/kirigami2-5.83.0/templates/kirigami/src/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kirigami2/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+cp %{_builddir}/kirigami2-5.85.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kirigami2/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/kirigami2-5.85.0/templates/kirigami/src/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kirigami2/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/kirigami2-5.85.0/templates/kirigami/src/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kirigami2/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
+cp %{_builddir}/kirigami2-5.85.0/templates/kirigami/src/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kirigami2/3e8971c6c5f16674958913a94a36b1ea7a00ac46
 pushd clr-build
 %make_install
 popd
@@ -130,6 +130,7 @@ popd
 /usr/share/locale/fi/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/fr/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/gl/LC_MESSAGES/libkirigami2plugin_qt.qm
+/usr/share/locale/hi/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/hu/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/ia/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/id/LC_MESSAGES/libkirigami2plugin_qt.qm
@@ -179,7 +180,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Kirigami2.so.5
-/usr/lib64/libKF5Kirigami2.so.5.83.0
+/usr/lib64/libKF5Kirigami2.so.5.85.0
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AboutPage.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationHeader.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationItem.qml
@@ -236,7 +237,6 @@ popd
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/ActionsMenu.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/BannerImage.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/CardsGridViewPrivate.qml
-/usr/lib64/qt5/qml/org/kde/kirigami.2/private/CardsListViewPrivate.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/ContextDrawerActionItem.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/CornerShadow.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/private/DefaultCardBackground.qml
