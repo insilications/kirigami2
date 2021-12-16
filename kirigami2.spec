@@ -5,14 +5,14 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kirigami2
-Version  : 5.88.0
-Release  : 51
-URL      : https://download.kde.org/stable/frameworks/5.88/kirigami2-5.88.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.88/kirigami2-5.88.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.88/kirigami2-5.88.0.tar.xz.sig
+Version  : 5.89.0
+Release  : 52
+URL      : https://download.kde.org/stable/frameworks/5.89/kirigami2-5.89.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.89/kirigami2-5.89.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.89/kirigami2-5.89.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : BSD-3-Clause CC0-1.0 GPL-2.0 LGPL-2.0
+License  : BSD-3-Clause CC0-1.0 GPL-2.0 LGPL-2.0 LGPL-2.1 LGPL-3.0
 Requires: kirigami2-data = %{version}-%{release}
 Requires: kirigami2-lib = %{version}-%{release}
 Requires: kirigami2-license = %{version}-%{release}
@@ -73,15 +73,15 @@ license components for the kirigami2 package.
 
 
 %prep
-%setup -q -n kirigami2-5.88.0
-cd %{_builddir}/kirigami2-5.88.0
+%setup -q -n kirigami2-5.89.0
+cd %{_builddir}/kirigami2-5.89.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1636998510
+export SOURCE_DATE_EPOCH=1639671496
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -97,13 +97,16 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1636998510
+export SOURCE_DATE_EPOCH=1639671496
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kirigami2
-cp %{_builddir}/kirigami2-5.88.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kirigami2/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/kirigami2-5.88.0/templates/kirigami/src/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kirigami2/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
-cp %{_builddir}/kirigami2-5.88.0/templates/kirigami/src/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kirigami2/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
-cp %{_builddir}/kirigami2-5.88.0/templates/kirigami/src/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kirigami2/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+cp %{_builddir}/kirigami2-5.89.0/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kirigami2/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
+cp %{_builddir}/kirigami2-5.89.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kirigami2/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/kirigami2-5.89.0/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/kirigami2/3c3d7573e137d48253731c975ecf90d74cfa9efe
+cp %{_builddir}/kirigami2-5.89.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kirigami2/757b86330df80f81143d5916b3e92b4bcb1b1890
+cp %{_builddir}/kirigami2-5.89.0/templates/kirigami/src/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kirigami2/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/kirigami2-5.89.0/templates/kirigami/src/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kirigami2/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
+cp %{_builddir}/kirigami2-5.89.0/templates/kirigami/src/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kirigami2/3e8971c6c5f16674958913a94a36b1ea7a00ac46
 pushd clr-build
 %make_install
 popd
@@ -154,6 +157,7 @@ popd
 /usr/share/locale/sr@ijekavianlatin/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/sr@latin/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/sv/LC_MESSAGES/libkirigami2plugin_qt.qm
+/usr/share/locale/ta/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/tg/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/tr/LC_MESSAGES/libkirigami2plugin_qt.qm
 /usr/share/locale/uk/LC_MESSAGES/libkirigami2plugin_qt.qm
@@ -182,7 +186,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Kirigami2.so.5
-/usr/lib64/libKF5Kirigami2.so.5.88.0
+/usr/lib64/libKF5Kirigami2.so.5.89.0
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AboutItem.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AboutPage.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/AbstractApplicationHeader.qml
@@ -205,6 +209,7 @@ popd
 /usr/lib64/qt5/qml/org/kde/kirigami.2/CardsListView.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/CheckableListItem.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/ContextDrawer.qml
+/usr/lib64/qt5/qml/org/kde/kirigami.2/Dialog.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/FlexColumn.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/FormLayout.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/GlobalDrawer.qml
@@ -216,6 +221,7 @@ popd
 /usr/lib64/qt5/qml/org/kde/kirigami.2/LinkButton.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/ListItemDragHandle.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/ListSectionHeader.qml
+/usr/lib64/qt5/qml/org/kde/kirigami.2/MenuDialog.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/NavigationTabBar.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/NavigationTabButton.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/OverlayDrawer.qml
@@ -225,6 +231,7 @@ popd
 /usr/lib64/qt5/qml/org/kde/kirigami.2/PageRow.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/PasswordField.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/PlaceholderMessage.qml
+/usr/lib64/qt5/qml/org/kde/kirigami.2/PromptDialog.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/RouterWindow.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/ScrollablePage.qml
 /usr/lib64/qt5/qml/org/kde/kirigami.2/SearchField.qml
@@ -302,6 +309,8 @@ popd
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/kirigami2/20079e8f79713dce80ab09774505773c926afa2a
+/usr/share/package-licenses/kirigami2/3c3d7573e137d48253731c975ecf90d74cfa9efe
 /usr/share/package-licenses/kirigami2/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+/usr/share/package-licenses/kirigami2/757b86330df80f81143d5916b3e92b4bcb1b1890
 /usr/share/package-licenses/kirigami2/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
 /usr/share/package-licenses/kirigami2/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
