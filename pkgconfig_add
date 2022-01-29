@@ -1,5 +1,6 @@
 # This file contains additional pkgconfig build requirements that did
 # not get picked up automatically. One name per line, no whitespace.
 Qt5Quick
-Qt5Svg
 Qt5QuickControls2
+Qt5QuickTest
+Qt5Svg
